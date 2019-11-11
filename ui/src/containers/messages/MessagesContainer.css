@@ -1,0 +1,36 @@
+.Messages {
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  flex-flow: row;
+  color: black;
+}
+
+.Messages > nav {
+  flex: 1 6 30%;
+  order: 1;
+}
+
+.Messages > section {
+  flex: 3 1 50%;
+  order: 2;
+}
+
+.Messages > aside {
+  flex: 1 6 20%;
+  order: 3;
+}
+
+/* Too narrow to support three columns */
+@media all and (max-width: 640px) {
+  .Messages {
+    flex-direction: column;
+  }
+
+  .Messages > section,
+  .Messages > nav,
+  .Messages > aside {
+    /* Return them to document order */
+    order: 0;
+  }
+}

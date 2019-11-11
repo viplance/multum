@@ -1,12 +1,12 @@
-.App {
+.Home {
   text-align: center;
 }
 
-.App-logo {
+.Home-logo {
   height: 40vmin;
 }
 
-.App-header {
+.Home-header {
   background-color: white;
   min-height: 100vh;
   display: flex;

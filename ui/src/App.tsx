@@ -1,16 +1,23 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 /* Components */
-import { HeaderComponent } from './components';
-import { HomeComponent } from './components';
+import {
+  FooterComponent,
+  HeaderComponent
+} from './components';
+/* Containers */
+import {
+  HomeContainer,
+  MessagesContainer
+} from './containers';
 
 function App() {
   return (
     <Router>
-      <div className="App">
-        <HeaderComponent></HeaderComponent>
-        <Route exact path='/' component={HomeComponent}></Route>
-      </div>
+      <HeaderComponent></HeaderComponent>
+      <Route exact path='/' component={HomeContainer}></Route>
+      <Route exact path='/messages' component={MessagesContainer}></Route>
+      <FooterComponent></FooterComponent>
     </Router>
   );
 }
