@@ -18,7 +18,11 @@ footer {
 
 header, footer {
   position: fixed;
-  display: block;
   width: 100%;
-  min-height: 50px;
+  display: flex;
+  align-items: center;
+}
+
+ul {
+  list-style-type: none;
 }

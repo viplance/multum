@@ -1,6 +1,5 @@
 import React from 'react';
 import Footer from './FooterStyled';
-import { Link } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import theme from '../../theme';
 

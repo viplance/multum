@@ -16,7 +16,7 @@ function HeaderComponent() {
         </ul>
       </Header>
     </ThemeProvider>
-  )
+  );
 }
 
 export default HeaderComponent;

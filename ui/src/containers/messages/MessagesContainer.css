@@ -1,9 +1,13 @@
 .Messages {
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
   display: flex;
   flex-flow: row;
   color: black;
+}
+
+.Messages > * {
+  margin-top: 50px;
 }
 
 .Messages > nav {
@@ -28,7 +32,12 @@
   }
 
   .Messages > section,
+  .Messages > aside {
+    margin-top: 0;
+  }
+
   .Messages > nav,
+  .Messages > section,
   .Messages > aside {
     /* Return them to document order */
     order: 0;
