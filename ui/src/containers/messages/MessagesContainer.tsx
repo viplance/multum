@@ -1,13 +1,16 @@
 import React from 'react';
+import { ContactListComponent } from '../../components';
 /* Assets */
 import './MessagesContainer.css';
 
 function MessagesContainer() {
   return (
     <div className="Messages">
-      <nav>nav</nav>
-      <section>section</section>
-      <aside>aside</aside>
+      <nav>
+        <ContactListComponent></ContactListComponent>
+      </nav>
+      <section>Messages</section>
+      <aside>Account info</aside>
     </div>
   )
 }
