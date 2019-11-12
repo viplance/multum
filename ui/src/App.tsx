@@ -1,9 +1,10 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 /* Components */
 import {
   FooterComponent,
-  HeaderComponent
+  HeaderComponent,
+  NoPageFoundComponent
 } from './components';
 /* Containers */
 import {
@@ -15,8 +16,11 @@ function App() {
   return (
     <Router>
       <HeaderComponent></HeaderComponent>
-      <Route exact path='/' component={HomeContainer}></Route>
-      <Route exact path='/messages' component={MessagesContainer}></Route>
+      <Switch>
+        <Route exact path='/' component={HomeContainer}></Route>
+        <Route path='/messages' component={MessagesContainer}></Route>
+        <Route component={NoPageFoundComponent} />
+      </Switch>
       <FooterComponent></FooterComponent>
     </Router>
   );
