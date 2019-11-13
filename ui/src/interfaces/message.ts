@@ -3,4 +3,5 @@ export interface Message {
   id: string;
   text: string;
   to: string;
+  date: string;
 }

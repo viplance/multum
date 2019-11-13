@@ -5,20 +5,26 @@ import theme from '../../theme';
 import { ThemeProvider } from 'styled-components';
 
 const MessagesListComponent = (props: any) => {
-  const messages = () => props.messages.filter((message: Message) => props.contactId === message.from).map((message: Message) => {
-    return (<div key={message.id}>
-      <span>{message.from}</span>
-      {message.text}
-    </div>)
-  });
+  const messages = () =>
+    props.messages
+      .filter((message: Message) => props.contactId === message.from || props.contactId === message.to)
+      .map((message: Message) => {
+        return (
+          <div key={message.id} className={props.contactId === message.from ? 'message from' : 'message to'}>
+            <div className="info">
+              <span className="name">{message.from}</span>
+              <span className="date">{message.date}</span>
+            </div>
+            {message.text}
+          </div>
+        );
+      });
 
   return (
     <ThemeProvider theme={theme}>
-      <MessageList>
-        {messages()}
-      </MessageList>
+      <MessageList>{messages()}</MessageList>
     </ThemeProvider>
   );
-}
+};
 
 export default MessagesListComponent;
