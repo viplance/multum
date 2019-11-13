@@ -3,6 +3,7 @@ import { Message } from '../../interfaces';
 import MessageList from './MessageListStyled';
 import theme from '../../theme';
 import { ThemeProvider } from 'styled-components';
+import { SendFormComponent } from '../../components';
 
 const MessagesListComponent = (props: any) => {
   const messages = () =>
@@ -22,7 +23,10 @@ const MessagesListComponent = (props: any) => {
 
   return (
     <ThemeProvider theme={theme}>
-      <MessageList>{messages()}</MessageList>
+      <MessageList>
+        {messages()}
+        <SendFormComponent contactId={props.contactId}></SendFormComponent>
+      </MessageList>
     </ThemeProvider>
   );
 };

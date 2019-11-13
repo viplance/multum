@@ -4,3 +4,4 @@ export { default as FooterComponent } from './footer/FooterComponent';
 export { default as HeaderComponent } from './header/HeaderComponent';
 export { default as MessageListComponent } from './message_list/MessageListComponent';
 export { default as NoPageFoundComponent } from './no_page_found/NoPageFoundComponent';
+export { default as SendFormComponent } from './send_form/SendFormComponent';
