@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { ContactListComponent, MessageListComponent } from '../../components';
+import { AccountInfoComponent, ContactListComponent, MessageListComponent } from '../../components';
 import { useParams } from 'react-router';
 import { connect } from 'react-redux';
 /* Assets */
@@ -21,7 +21,9 @@ const MessagesContainer = (props: any) => {
       <section>
         <MessageListComponent messages={messages} contactId={contactId}></MessageListComponent>
       </section>
-      <aside>Account info</aside>
+      <aside>
+        <AccountInfoComponent></AccountInfoComponent>
+      </aside>
     </div>
   );
 };

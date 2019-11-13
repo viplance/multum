@@ -2,7 +2,7 @@ const theme = {
   dark: '#555555',
   horizontalPadding: '20px',
   light: 'white',
-  lightBackground: '#fdfdfd',
+  lightBackground: '#f0f0f0',
   contactListBackground: '#fdecbe',
   contactListBackgroundActive: '#fda21a',
   contactListColor: '#555555',

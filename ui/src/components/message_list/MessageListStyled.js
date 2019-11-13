@@ -2,15 +2,15 @@ import styled from 'styled-components';
 
 const MessageList = styled.ul`
   max-width: 768px;
-  padding: ${props => props.theme.horizontalPadding};
-  width: 100%;
-
+  width: 90%;
+  
   div.message {
     align-items: center;
     color: ${props => props.theme.contactListColor};
     margin-bottom: 20px;
     min-height: ${props => props.theme.panelHeight};
     padding: 0 ${props => props.theme.horizontalPadding} 0 ${props => props.theme.horizontalPadding};
+    // padding: ${props => props.theme.horizontalPadding};
     width: 100%;
 
     div.info {
