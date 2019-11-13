@@ -8,7 +8,7 @@ import { ThemeProvider } from 'styled-components';
 const MessagesListComponent = (props: any) => {
   const contacts = () => props.contacts.map((contact: Contact) => {
     return (<Link key={contact.id} to={`/messages/${contact.id}`}>
-      <li>{contact.name}</li>
+      <li className={props.contactId === contact.id ? 'active': ''}>{contact.name}</li>
     </Link>)
   });
 

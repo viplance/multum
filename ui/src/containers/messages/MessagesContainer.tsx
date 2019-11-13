@@ -16,7 +16,7 @@ const MessagesContainer = (props: any) => {
   return (
     <div className="Messages">
       <nav>
-        <ContactListComponent contacts={contacts}></ContactListComponent>
+        <ContactListComponent contacts={contacts} contactId={contactId}></ContactListComponent>
       </nav>
       <section>Messages {contactId}</section>
       <aside>Account info</aside>
