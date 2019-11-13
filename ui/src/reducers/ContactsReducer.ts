@@ -1,6 +1,11 @@
-import { Contact } from '../interfaces/contact';
+import { Contact } from '../interfaces';
 
-const contacts = (state: Contact[] = [], action: any ) => {
+const defaultState = [
+  { id: '1', name: 'User1' },
+  { id: '2', name: 'User2' },
+];
+
+const contacts = (state: Contact[] = defaultState, action: any ) => {
   switch (action.type) {
     case 'ADD_CONTACT':
       return [
@@ -11,10 +16,7 @@ const contacts = (state: Contact[] = [], action: any ) => {
         }
       ];
     default:
-      return state = [
-          { id: '1', name: 'User1' },
-          { id: '2', name: 'User2' },
-      ];
+      return state;
   }
 };
 

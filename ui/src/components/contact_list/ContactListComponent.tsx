@@ -1,22 +1,21 @@
 import React from 'react';
+import { Contact } from '../../interfaces';
 import ContactList from './ContactListStyled';
 import { Link } from 'react-router-dom';
-import { ThemeProvider } from 'styled-components';
 import theme from '../../theme';
+import { ThemeProvider } from 'styled-components';
 
-function MessagesListComponent() {
+const MessagesListComponent = (props: any) => {
+  const contacts = () => props.contacts.map((contact: Contact) => {
+    return (<Link key={contact.id} to={`/messages/${contact.id}`}>
+      <li>{contact.name}</li>
+    </Link>)
+  });
+
   return (
     <ThemeProvider theme={theme}>
       <ContactList>
-        <Link to="/messages/1">
-          <li>User1</li>
-        </Link>
-        <Link to="/messages/2">
-          <li className="active">User2</li>
-        </Link>
-        <Link to="/messages/3">
-          <li>User3</li>
-        </Link>
+        {contacts()}
       </ContactList>
     </ThemeProvider>
   );
