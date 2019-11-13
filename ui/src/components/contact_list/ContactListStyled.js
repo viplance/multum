@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 const ContactList = styled.ul`
   width: 100%;
-  background: ${props => props.theme.contactListBackgroundActive};
 
   a {
     text-decoration: none;

@@ -1,8 +1,8 @@
 import { Contact } from '../interfaces';
 
 const defaultState = [
-  { id: '1', name: 'User1' },
-  { id: '2', name: 'User2' },
+  { id: 'User1', name: 'User1' },
+  { id: 'User2', name: 'User2' },
 ];
 
 const contacts = (state: Contact[] = defaultState, action: any ) => {

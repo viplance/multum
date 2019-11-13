@@ -1,8 +1,11 @@
-import { Message } from '../interfaces/message';
+import { Message } from '../interfaces';
 
 const defaultState = [
-  { id: '1', text: 'Some message text', from: 'User1', to: 'User2' },
-  { id: '2', text: 'Some message text', from: 'User2', to: 'User1' },
+  { id: '1', text: 'Some message text 1', from: 'User1', to: 'User2' },
+  { id: '2', text: 'Some message text 2', from: 'User2', to: 'User1' },
+  { id: '3', text: 'Some message text 3', from: 'User1', to: 'User2' },
+  { id: '4', text: 'Some message text 4', from: 'User2', to: 'User1' },
+  { id: '5', text: 'Some message text 5', from: 'User2', to: 'User1' },
 ];
 
 const messages = (state: Message[] = defaultState, action: any ) => {

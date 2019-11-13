@@ -1,25 +1,20 @@
 import styled from 'styled-components';
 
 const MessageList = styled.ul`
-  width: 100%;
-  background: ${props => props.theme.contactListBackgroundActive};
+  padding: ${props => props.theme.horizontalPadding};
 
-  a {
-    text-decoration: none;
-  }
-  
-  li.active {
-    background: ${props => props.theme.contactListBackgroundActive};
-    color: ${props => props.theme.contactListColorActive};
-  }
-  
-  li {
+  div {
     align-items: center;
-    background: ${props => props.theme.contactListBackground};
     color: ${props => props.theme.contactListColor};
-    display: flex;
+    margin-bottom: 20px;
     min-height: ${props => props.theme.panelHeight};
     padding: 0 ${props => props.theme.horizontalPadding} 0 ${props => props.theme.horizontalPadding};
+
+    span {
+      display: block;
+      font-weight: bold;
+      width: 100%
+    }
   }
 `;
 

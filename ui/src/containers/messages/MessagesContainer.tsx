@@ -1,31 +1,33 @@
 import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
-import { ContactListComponent } from '../../components';
+import { ContactListComponent, MessageListComponent } from '../../components';
 import { useParams } from 'react-router';
+import { connect } from 'react-redux';
 /* Assets */
 import './MessagesContainer.css';
 
 const MessagesContainer = (props: any) => {
-  const { contactId } = useParams();
   useEffect(() => {
     /* Application onLoad event */
   });
 
-  const { contacts } = props;
+  const { contactId } = useParams();
+  const { contacts, messages } = props;
 
   return (
     <div className="Messages">
       <nav>
         <ContactListComponent contacts={contacts} contactId={contactId}></ContactListComponent>
       </nav>
-      <section>Messages {contactId}</section>
+      <section>
+        <MessageListComponent messages={messages} contactId={contactId}></MessageListComponent>
+      </section>
       <aside>Account info</aside>
     </div>
   );
-}
+};
 
 function mapStateToProps(state: any) {
-  return { contacts: state.contacts };
+  return { contacts: state.contacts, messages: state.messages };
 }
 
 export default connect(mapStateToProps)(MessagesContainer);
