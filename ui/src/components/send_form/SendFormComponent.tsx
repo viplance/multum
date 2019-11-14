@@ -10,7 +10,8 @@ const SendFormComponent = (props: any) => {
   const sendMessage = () => {
     const textarea = document.getElementById('messageText') as HTMLTextAreaElement;
     const text: string = textarea.value;
-    props.sendMessage({ text });
+    const { contactId } = props;
+    props.sendMessage({ text, contactId });
     textarea.value = '';
   };
 

@@ -37,7 +37,7 @@ function mapDispatchToProps(dispatch: Function): object {
       const payload: Message = {
         text: data.text,
         from: 'me',
-        to: 'User1',
+        to: data.contactId,
         date: transformDate()
       };
       dispatch({ type: 'ADD_MESSAGE', payload })
