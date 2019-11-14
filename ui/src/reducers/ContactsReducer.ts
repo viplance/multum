@@ -1,3 +1,4 @@
+import { ActionTypes } from '../actions';
 import { Contact } from '../interfaces';
 
 const defaultState = [
@@ -7,7 +8,7 @@ const defaultState = [
 
 const contacts = (state: Contact[] = defaultState, action: any ) => {
   switch (action.type) {
-    case 'ADD_CONTACT':
+    case ActionTypes.AddContact:
       return [
         ...state,
         {

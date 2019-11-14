@@ -1,3 +1,4 @@
+import { ActionTypes } from '../../actions';
 import React, { useEffect } from 'react';
 import { AccountInfoComponent, ContactListComponent, MessageListComponent } from '../../components';
 import { useParams } from 'react-router';
@@ -40,7 +41,7 @@ function mapDispatchToProps(dispatch: Function): object {
         to: data.contactId,
         date: transformDate()
       };
-      dispatch({ type: 'ADD_MESSAGE', payload })
+      dispatch({ type: ActionTypes.AddMessage, payload })
     },
   };
 }

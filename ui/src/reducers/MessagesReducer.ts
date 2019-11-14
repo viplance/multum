@@ -1,3 +1,4 @@
+import { ActionTypes } from '../actions';
 import { Message } from '../interfaces';
 
 const defaultState = [
@@ -17,7 +18,7 @@ const defaultState = [
 const messages = (state: Message[] = defaultState, action: any ) => {
   const { payload } = action;
   switch (action.type) {
-    case 'ADD_MESSAGE':
+    case ActionTypes.AddMessage:
       return [
         ...state,
         {
