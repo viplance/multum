@@ -8,7 +8,10 @@ import send from '../../assets/send.svg';
 
 const SendFormComponent = (props: any) => {
   const sendMessage = () => {
-    const text = (document.getElementById('messageText') as HTMLTextAreaElement).value;
+    const textarea = document.getElementById('messageText') as HTMLTextAreaElement;
+    const text: string = textarea.value;
+    props.sendMessage({ text });
+    textarea.value = '';
   };
 
   return (

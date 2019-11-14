@@ -6,12 +6,13 @@ import { ThemeProvider } from 'styled-components';
 import { SendFormComponent } from '../../components';
 
 const MessagesListComponent = (props: any) => {
+  let count = 0;
   const messages = () =>
     props.messages
       .filter((message: Message) => props.contactId === message.from || props.contactId === message.to)
       .map((message: Message) => {
         return (
-          <div key={message.id} className={props.contactId === message.from ? 'message from' : 'message to'}>
+          <div key={count++} className={props.contactId === message.from ? 'message from' : 'message to'}>
             <div className="info">
               <span className="name">{message.from}</span>
               <span className="date">{message.date}</span>
@@ -25,7 +26,7 @@ const MessagesListComponent = (props: any) => {
     <ThemeProvider theme={theme}>
       <MessageList>
         {messages()}
-        <SendFormComponent contactId={props.contactId}></SendFormComponent>
+        <SendFormComponent contactId={props.contactId} sendMessage={props.sendMessage}></SendFormComponent>
       </MessageList>
     </ThemeProvider>
   );

@@ -14,6 +14,7 @@ const SendForm = styled.div`
   textarea {
     min-width: 75%;
     height: 70px;
+    margin-left: ${props => props.theme.horizontalPadding};
   }
 `;
 

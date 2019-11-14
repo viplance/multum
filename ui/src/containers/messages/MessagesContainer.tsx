@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { AccountInfoComponent, ContactListComponent, MessageListComponent } from '../../components';
 import { useParams } from 'react-router';
 import { connect } from 'react-redux';
+import { Message } from '../../interfaces';
+import { transformDate } from '../../utils';
 /* Assets */
 import './MessagesContainer.css';
 
@@ -11,15 +13,15 @@ const MessagesContainer = (props: any) => {
   });
 
   const { contactId } = useParams();
-  const { contacts, messages } = props;
+  const { contacts, messages, sendMessage } = props;
 
   return (
     <div className="Messages">
       <nav>
-        <ContactListComponent contacts={contacts} contactId={contactId}></ContactListComponent>
+        <ContactListComponent contactId={contactId} contacts={contacts}></ContactListComponent>
       </nav>
       <section>
-        <MessageListComponent messages={messages} contactId={contactId}></MessageListComponent>
+        <MessageListComponent contactId={contactId} messages={messages} sendMessage={sendMessage}></MessageListComponent>
       </section>
       <aside>
         <AccountInfoComponent></AccountInfoComponent>
@@ -28,8 +30,23 @@ const MessagesContainer = (props: any) => {
   );
 };
 
-function mapStateToProps(state: any) {
+function mapDispatchToProps(dispatch: Function): object {
+  return {
+    // dispatching plain actions
+    sendMessage: (data: any) => {
+      const payload: Message = {
+        text: data.text,
+        from: 'me',
+        to: 'User1',
+        date: transformDate()
+      };
+      dispatch({ type: 'ADD_MESSAGE', payload })
+    },
+  };
+}
+
+function mapStateToProps(state: any): object {
   return { contacts: state.contacts, messages: state.messages };
 }
 
-export default connect(mapStateToProps)(MessagesContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(MessagesContainer);

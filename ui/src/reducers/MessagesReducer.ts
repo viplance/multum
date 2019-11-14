@@ -13,17 +13,19 @@ const defaultState = [
   { id: '10', text: 'Some message text 10', from: 'User2', to: 'me', date: '29.11.2019 16:15' },
 ];
 
+/* State reducers */
 const messages = (state: Message[] = defaultState, action: any ) => {
+  const { payload } = action;
   switch (action.type) {
     case 'ADD_MESSAGE':
       return [
         ...state,
         {
-          id: action.payload.id,
-          text: action.payload.text,
-          from: action.payload.from,
-          to: action.payload.to,
-          date: action.payload.date,
+          id: payload.id,
+          text: payload.text,
+          from: payload.from,
+          to: payload.to,
+          date: payload.date,
         }
       ];
     default:
