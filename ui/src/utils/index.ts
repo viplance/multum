@@ -1,4 +1,4 @@
-const LOCAL_STORAGE_NAME = 'multum';
+const LOCAL_STORAGE_NAME = process.env.REACT_APP_LOCAL_STORAGE_NAME as string;
 
 export function transformDate(date: Date = new Date()): string {
   const mm = date.getMonth() + 1;
