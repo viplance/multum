@@ -1,5 +1,6 @@
-import { ActionTypes } from '../actions';
+import { Actions, ActionTypes } from '../actions';
 import { Message } from '../interfaces';
+import { Action } from 'redux-actions';
 
 const defaultState = [
   { id: '1', text: 'Some message text 1', from: 'User1', to: 'me', date: '27.11.2019 15:10' },
@@ -15,7 +16,7 @@ const defaultState = [
 ];
 
 /* State reducers */
-const messages = (state: Message[] = defaultState, action: any ) => {
+const messages = (state: Message[] = defaultState, action: Action<any> ) => {
   const { payload } = action;
   switch (action.type) {
     case ActionTypes.AddMessage:
