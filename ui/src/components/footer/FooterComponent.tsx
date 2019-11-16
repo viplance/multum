@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { SFC, ReactElement } from 'react';
 import Footer from './FooterStyled';
 import { ThemeProvider } from 'styled-components';
 import theme from '../../theme';
 
-function FooterComponent() {
+const FooterComponent: SFC = (): ReactElement => {
   return (
     <ThemeProvider theme={theme}>
       <Footer>

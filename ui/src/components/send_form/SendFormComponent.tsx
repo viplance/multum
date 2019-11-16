@@ -1,17 +1,20 @@
-import React from 'react';
+import React, { ReactElement, ReactNode } from 'react';
 import SendForm from './SendFormStyled';
 import { ThemeProvider } from 'styled-components';
 import theme from '../../theme';
 /* Assets */
 import send from '../../assets/send.svg';
 
+interface StatelessComponent<P = {}> {
+  (props: { contactId?: string; addMessage: Function } & { children?: ReactNode }, context?: any): ReactElement<any> | null;
+}
+type SFC<P = {}> = StatelessComponent<P>;
 
-const SendFormComponent = (props: any) => {
+const SendFormComponent: SFC = ({ contactId, addMessage }) => {
   const sendMessage = () => {
     const textarea = document.getElementById('messageText') as HTMLTextAreaElement;
     const text: string = textarea.value;
-    const { contactId } = props;
-    props.sendMessage({ text, contactId });
+    addMessage({ text, contactId });
     textarea.value = '';
   };
 

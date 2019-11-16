@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { FC, ReactElement } from 'react';
 import Header from './HeaderStyled';
 import { Link } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import theme from '../../theme';
 
-function HeaderComponent() {
+const HeaderComponent: FC = (): ReactElement => {
   return (
     <ThemeProvider theme={theme}>
       <Header>

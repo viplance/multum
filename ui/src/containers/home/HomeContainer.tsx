@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { FC, ReactElement } from 'react';
 /* Assets */
 import logo from '../../assets/logo.svg';
 import './HomeContainer.css';
 
-function HomeContainer() {
+const HomeContainer: FC = (): ReactElement => {
   return (
     <div className="Home">
       <div className="Home-header">

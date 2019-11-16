@@ -1,20 +1,27 @@
 import { ActionTypes } from '../../actions';
-import React, { useEffect } from 'react';
+import React, { ReactElement, ReactNode, useEffect } from 'react';
 import { AccountInfoComponent, ContactListComponent, MessageListComponent } from '../../components';
 import { useParams } from 'react-router';
 import { connect } from 'react-redux';
-import { Message } from '../../interfaces';
+import { Contact, Message } from '../../interfaces';
 import { transformDate } from '../../utils';
 /* Assets */
 import './MessagesContainer.css';
 
-const MessagesContainer = (props: any) => {
+interface StatefullComponent<P = {}> {
+  (
+    props: { contactId?: string; contacts: Contact[]; messages: Message[]; addMessage: Function } & { children?: ReactNode },
+    context?: any
+  ): ReactElement<any> | null;
+}
+type SFC<P = {}> = StatefullComponent<P>;
+
+const MessagesContainer: SFC = ({ contacts, messages, addMessage }) => {
   useEffect(() => {
-    /* Application onLoad event */
+    /* On mount component */
   });
 
   const { contactId } = useParams();
-  const { contacts, messages, sendMessage } = props;
 
   return (
     <div className="Messages">
@@ -22,7 +29,7 @@ const MessagesContainer = (props: any) => {
         <ContactListComponent contactId={contactId} contacts={contacts}></ContactListComponent>
       </nav>
       <section>
-        <MessageListComponent contactId={contactId} messages={messages} sendMessage={sendMessage}></MessageListComponent>
+        <MessageListComponent contactId={contactId} messages={messages} addMessage={addMessage}></MessageListComponent>
       </section>
       <aside>
         <AccountInfoComponent></AccountInfoComponent>
@@ -34,15 +41,15 @@ const MessagesContainer = (props: any) => {
 function mapDispatchToProps(dispatch: Function): object {
   return {
     // dispatching plain actions
-    sendMessage: (data: any) => {
+    addMessage: (data: any) => {
       const payload: Message = {
         text: data.text,
         from: 'me',
         to: data.contactId,
         date: transformDate()
       };
-      dispatch({ type: ActionTypes.AddMessage, payload })
-    },
+      dispatch({ type: ActionTypes.AddMessage, payload });
+    }
   };
 }
 
@@ -50,4 +57,7 @@ function mapStateToProps(state: any): object {
   return { contacts: state.contacts, messages: state.messages };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(MessagesContainer);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(MessagesContainer);

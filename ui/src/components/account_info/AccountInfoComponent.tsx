@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { FC, ReactElement } from 'react';
 import AccountInfo from './AccountInfoStyled';
 import { ThemeProvider } from 'styled-components';
 import theme from '../../theme';
 /* Assets */
 import user from '../../assets/user.svg';
 
-function AccountInfoComponent() {
+const AccountInfoComponent: FC = (): ReactElement => {
   return (
     <ThemeProvider theme={theme}>
       <AccountInfo>
@@ -17,6 +17,6 @@ function AccountInfoComponent() {
       </AccountInfo>
     </ThemeProvider>
   );
-}
+};
 
 export default AccountInfoComponent;
