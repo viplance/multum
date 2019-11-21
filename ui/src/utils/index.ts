@@ -1,4 +1,13 @@
-const LOCAL_STORAGE_NAME = process.env.REACT_APP_LOCAL_STORAGE_NAME as string;
+/* Date */
+
+function addZero(val: number): string {
+  const str = val.toString();
+  return str.length === 1 ? '0' + str : str;
+}
+
+export function getTimeStamp(): string {
+  return (+new Date()).toString();
+}
 
 export function transformDate(date: Date = new Date()): string {
   const mm = date.getMonth() + 1;
@@ -7,8 +16,12 @@ export function transformDate(date: Date = new Date()): string {
   const min = date.getMinutes();
   const sec = date.getSeconds();
 
-  return `${(mm > 9 ? '' : '0') + mm}.${(dd > 9 ? '' : '0') + dd}.${date.getFullYear()}. ${hrs}:${min}:${sec}`;
+  return `${addZero(dd)}.${addZero(mm)}.${date.getFullYear()} ${addZero(hrs)}:${addZero(min)}:${addZero(sec)}`;
 }
+
+/* Local storage */
+
+const LOCAL_STORAGE_NAME = process.env.REACT_APP_LOCAL_STORAGE_NAME as string;
 
 export function getLocal(): any {
   let lS: object;

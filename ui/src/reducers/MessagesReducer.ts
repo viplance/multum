@@ -24,6 +24,7 @@ const messages = (state: Message[] = defaultState, action: Action<any> ) => {
         ...state,
         {
           id: payload.id,
+          temporaryId: payload.temporaryId,
           text: payload.text,
           from: payload.from,
           to: payload.to,

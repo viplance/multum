@@ -4,19 +4,21 @@ import { AccountInfoComponent, ContactListComponent, MessageListComponent } from
 import { useParams } from 'react-router';
 import { connect } from 'react-redux';
 import { Contact, Message } from '../../interfaces';
-import { transformDate } from '../../utils';
+import { getTimeStamp, transformDate } from '../../utils';
 /* Assets */
 import './MessagesContainer.css';
 
-interface StatefullComponent<P = {}> {
+interface StatelessComponent<P = {}> {
   (
-    props: { contactId?: string; contacts: Contact[]; messages: Message[]; addMessage: Function } & { children?: ReactNode },
+    props: { contactId?: string; contacts: Contact[]; messages: Message[]; addMessage: Function } & {
+      children?: ReactNode;
+    },
     context?: any
   ): ReactElement<any> | null;
 }
-type SFC<P = {}> = StatefullComponent<P>;
+type SLC<P = {}> = StatelessComponent<P>;
 
-const MessagesContainer: SFC = ({ contacts, messages, addMessage }) => {
+const MessagesContainer: SLC = ({ contacts, messages, addMessage }) => {
   useEffect(() => {
     /* On mount component */
   });
@@ -29,7 +31,11 @@ const MessagesContainer: SFC = ({ contacts, messages, addMessage }) => {
         <ContactListComponent contactId={contactId} contacts={contacts}></ContactListComponent>
       </nav>
       <section>
-        <MessageListComponent contactId={contactId} messages={messages} addMessage={addMessage}></MessageListComponent>
+        <MessageListComponent
+          contactId={contactId}
+          messages={messages}
+          addMessage={addMessage}
+        ></MessageListComponent>
       </section>
       <aside>
         <AccountInfoComponent></AccountInfoComponent>
@@ -42,13 +48,16 @@ function mapDispatchToProps(dispatch: Function): object {
   return {
     // dispatching plain actions
     addMessage: (data: any) => {
-      const payload: Message = {
-        text: data.text,
-        from: 'me',
-        to: data.contactId,
-        date: transformDate()
-      };
-      dispatch({ type: ActionTypes.AddMessage, payload });
+      if (data.text && data.text.length > 0) {
+        const payload: Message = {
+          text: data.text,
+          from: 'me',
+          temporaryId: getTimeStamp(),
+          to: data.contactId,
+          date: transformDate()
+        };
+        dispatch({ type: ActionTypes.AddMessage, payload });
+      }
     }
   };
 }
@@ -57,7 +66,4 @@ function mapStateToProps(state: any): object {
   return { contacts: state.contacts, messages: state.messages };
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(MessagesContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(MessagesContainer);

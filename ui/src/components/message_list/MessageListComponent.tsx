@@ -11,16 +11,15 @@ interface StatelessComponent<P = {}> {
     context?: any
   ): ReactElement<any> | null;
 }
-type SFC<P = {}> = StatelessComponent<P>;
+type SLC<P = {}> = StatelessComponent<P>;
 
-const MessagesListComponent: SFC = ({ contactId, messages, addMessage }) => {
-  let count = 0;
+const MessagesListComponent: SLC = ({ contactId, messages, addMessage }) => {
   const messagesList = () =>
     messages
       .filter((message: Message) => contactId === message.from || contactId === message.to)
       .map((message: Message) => {
         return (
-          <div key={count++} className={contactId === message.from ? 'message from' : 'message to'}>
+          <div key={message.id || message.temporaryId} className={contactId === message.from ? 'message from' : 'message to'}>
             <div className="info">
               <span className="name">{message.from}</span>
               <span className="date">{message.date}</span>
