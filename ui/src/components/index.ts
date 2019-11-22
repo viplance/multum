@@ -1,7 +1,7 @@
-export { default as AccountInfoComponent } from './account_info/AccountInfoComponent';
-export { default as ContactListComponent } from './contact_list/ContactListComponent';
-export { default as FooterComponent } from './footer/FooterComponent';
-export { default as HeaderComponent } from './header/HeaderComponent';
-export { default as MessageListComponent } from './message_list/MessageListComponent';
-export { default as NoPageFoundComponent } from './no_page_found/NoPageFoundComponent';
-export { default as SendFormComponent } from './send_form/SendFormComponent';
+export { default as AccountInfoComponent } from './AccountInfo/AccountInfoComponent';
+export { default as ContactListComponent } from './ContactList/ContactListComponent';
+export { default as FooterComponent } from './Footer/FooterComponent';
+export { default as HeaderComponent } from './Header/HeaderComponent';
+export { default as MessageListComponent } from './MessageList/MessageListComponent';
+export { default as NoPageFoundComponent } from './NoPageFound/NoPageFoundComponent';
+export { default as SendFormComponent } from './SendForm/SendFormComponent';

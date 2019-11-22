@@ -3,7 +3,7 @@ import { Message } from '../../interfaces';
 import MessageList from './MessageListStyled';
 import theme from '../../theme';
 import { ThemeProvider } from 'styled-components';
-import { SendFormComponent } from '../../components';
+import { SendFormComponent } from '..';
 
 interface StatelessComponent<P = {}> {
   (

@@ -9,7 +9,8 @@ import {
 /* Containers */
 import {
   HomeContainer,
-  MessagesContainer
+  MessagesContainer,
+  SigninContainer
 } from './containers';
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
         <Route exact path='/' component={HomeContainer}></Route>
         <Route exact path='/messages' component={MessagesContainer}></Route>
         <Route path='/messages/:contactId' component={MessagesContainer}></Route>
+        <Route exact path='/signin' component={SigninContainer}></Route>
         <Route component={NoPageFoundComponent} />
       </Switch>
       <FooterComponent></FooterComponent>
