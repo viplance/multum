@@ -1,14 +1,89 @@
-.Signin {
-  text-align: center;
+.Signin *,
+.Signin *::before,
+.Signin *::after {
+  box-sizing: border-box;
 }
 
-.Signin-header {
-  background-color: white;
-  min-height: 100vh;
+.Signin {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  -webkit-display: box;
+  -moz-display: box;
+  -ms-display: flexbox;
+  -webkit-display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: #555555;
+  align-content: center;
+  padding: 6%;
+  margin: 0;
+}
+
+.Signin h1 {
+  margin-bottom: 1em;
+}
+
+.Signin form {
+  padding: 2em;
+  padding-bottom: 3em;
+  border-radius: 8px;
+  max-width: 400px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0 10px 40px -14px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.Signin form input {
+  color: #384047;
+  background-color: #e8eeef;
+  border: none;
+  border-radius: 4px;
+  padding: 1em;
+  margin-bottom: 1.2em;
+  width: 100%;
+}
+
+.Signin form input:focus {
+  outline: none;
+}
+
+.Signin .button {
+  text-align: center;
+  color: white;
+  background-color: #4bc970;
+  width: 100%;
+  border: none;
+  border-radius: 4px;
+  padding: 0.8em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 200ms ease-in-out;
+}
+
+.Signin .button span {
+  position: relative;
+  z-index: 1;
+}
+
+.Signin .button .circle {
+  position: absolute;
+  z-index: 0;
+  background-color: #35a556;
+  border-radius: 50%;
+  transform: scale(0);
+  opacity: 5;
+  height: 50px;
+  width: 50px;
+}
+
+.Signin .button .signup-message {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
 }

@@ -6,10 +6,13 @@ import { mapTo } from 'rxjs/operators';
 
 /* Epics: Action side effects */
 
-const sendMessageEpic: Epic = (action$: ActionsObservable<Action>, state$: StateObservable<{}>): Observable<Action> =>
+const addMessageEpic: Epic = (action$: ActionsObservable<Action>, state$: StateObservable<{}>): Observable<Action> =>
   action$.ofType(ActionTypes.AddMessage).pipe(mapTo({ type: '' }));
+
+const signinEpic: Epic = (action$: ActionsObservable<Action>, state$: StateObservable<{}>): Observable<Action> =>
+  action$.ofType(ActionTypes.Signin).pipe(mapTo({ type: '' }));
 
 const testEpic: Epic = (action$: ActionsObservable<Action>, state$: StateObservable<{}>): Observable<Action> =>
   action$.ofType(ActionTypes.Test).pipe(mapTo({ type: '' }));
 
-export default combineEpics(sendMessageEpic, testEpic);
+export default combineEpics(addMessageEpic, signinEpic, testEpic);
