@@ -3,9 +3,11 @@ import { combineActions, createAction } from 'redux-actions';
 export enum ActionTypes {
   AddContact = 'ADD_CONTACT',
   AddMessage = 'ADD_MESSAGE',
+  Auth = 'AUTH',
   Signin = 'SIGNIN',
   Test = 'TEST'
 }
+
 
 const AddContact = createAction(ActionTypes.AddContact, (...payload) => {
   return payload;
