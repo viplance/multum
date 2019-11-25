@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 /* Components */
-import { FooterComponent, HeaderComponent, NoPageFoundComponent } from './components';
+import { FooterComponent, HeaderComponent, NoPageFoundComponent, PrivateRoute } from './components';
 /* Containers */
 import { HomeContainer, MessagesContainer, SigninContainer } from './containers';
+/* Utils */
+import { Routes } from './utils';
 
 function App() {
   useEffect(() => {
@@ -14,10 +16,10 @@ function App() {
     <Router>
       <HeaderComponent></HeaderComponent>
       <Switch>
-        <Route exact path="/" component={HomeContainer}></Route>
-        <Route exact path="/messages" component={MessagesContainer}></Route>
-        <Route path="/messages/:contactId" component={MessagesContainer}></Route>
-        <Route exact path="/signin" component={SigninContainer}></Route>
+        <PrivateRoute exact path={Routes.Home} component={HomeContainer} />
+        <PrivateRoute exact path={Routes.Messages} component={MessagesContainer} />
+        <PrivateRoute path={Routes.Messages + '/:contactId'} component={MessagesContainer} />
+        <Route exact path={Routes.Signin} component={SigninContainer} />
         <Route component={NoPageFoundComponent} />
       </Switch>
       <FooterComponent></FooterComponent>

@@ -5,6 +5,11 @@ const Header = styled.header`
     color: white;
     margin-right: 20px;
   }
+  li {
+    cursor: pointer;
+    float: left;
+    text-decoration: underline;
+  }
   background: ${props => props.theme.dark};
   color: ${props => props.theme.light};
   min-height: ${props => props.theme.panelHeight};

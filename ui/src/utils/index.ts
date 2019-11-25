@@ -1,3 +1,26 @@
+/* Auth */
+
+export enum Routes {
+  Default = '/messages',
+  Home = '/',
+  Messages = '/messages',
+  Signin = '/signin',
+};
+
+export function isLogged(): boolean {
+  return (getLocal() as any).currentUser ? true : false;
+}
+
+export function singin(currentUser: { username: string; password: string }): void {
+  const { username, password } = currentUser;
+  setLocal({ currentUser });
+}
+
+export function logout(): void {
+  removeLocal();
+}
+
+
 /* Date */
 
 function addZero(val: number): string {

@@ -1,8 +1,11 @@
 import React, { ChangeEvent, FC, FormEvent, ReactElement, useState } from 'react';
+import { RouteComponentProps } from 'react-router-dom';
 /* Assets */
 import './SigninContainer.css';
+/* Utils */
+import { Routes, singin } from '../../utils';
 
-const SigninContainer: FC = (): ReactElement => {
+const SigninContainer: FC<RouteComponentProps> = ({ history }): ReactElement => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -10,9 +13,11 @@ const SigninContainer: FC = (): ReactElement => {
     event.preventDefault();
     const target: any = event.nativeEvent.target;
     const elements: HTMLFormControlsCollection = target.elements;
-    console.log(elements.length);
+    // console.log(elements.length);
+    singin({ username, password });
     setUsername('');
     setPassword('');
+    history.push(Routes.Default);
   };
 
   const handleUsernameChange = (event: ChangeEvent<HTMLInputElement>) => {
