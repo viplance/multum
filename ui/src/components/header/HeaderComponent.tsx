@@ -31,11 +31,7 @@ const HeaderComponent: FC<RouteComponentProps> = ({ history }): ReactElement => 
       </ThemeProvider>
     );
   } else {
-    return (
-      <ThemeProvider theme={theme}>
-        <Header></Header>
-      </ThemeProvider>
-    );
+    return <></>;
   }
 };
 
