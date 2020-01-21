@@ -1,0 +1,12 @@
+{
+  "name": "multum",
+  "description": "Multi messeger backend",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "googleapis": "^39.2.0"
+  },
+  "scripts": {
+    "start": "node ."
+  }
+}

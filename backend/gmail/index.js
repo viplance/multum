@@ -1,3 +1,5 @@
+// GMAIL module
+
 const fs = require('fs');
 const readline = require('readline');
 const { google } = require('googleapis');
@@ -17,6 +19,7 @@ fs.readFile(`${__dirname}/credentials.json`, (err, content) => {
   // Authorize a client with credentials, then call the Gmail API.
   // authorize(JSON.parse(content), getContactList);
   // authorize(JSON.parse(content), getListLabels);
+  console.log(content);
   authorize(JSON.parse(content), getRecentEmail);
 });
 
